@@ -1,6 +1,7 @@
 import 'package:firebase_authentication/pages/home/home.dart';
 import 'package:firebase_authentication/pages/login/google/google_auth.dart';
 import 'package:firebase_authentication/pages/signup/signup.dart';
+import 'package:firebase_authentication/pages/forgot_pass/forgot_password.dart';
 import 'package:firebase_authentication/services/auth_services.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,29 @@ class _LoginState extends State<Login> {
                   height: 50,
                 ),
                 _signin(context),
-                const SizedBox(height: 30),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPassword(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Forgot Password?',
+                      style: GoogleFonts.raleway(
+                        textStyle: const TextStyle(
+                          color: Colors.blue,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     const Expanded(
